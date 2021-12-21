@@ -21,8 +21,8 @@ app.use(express.urlencoded({ extended: true }))
 app.use(cors())
 app.use(express.json())
 
-app.use(express.static(path.join(__dirname, "client", "build")))
 app.use("/", router)
+app.use(express.static(path.join(__dirname, "client", "build")))
 //app.use( "*", (req, res) => res.status(404).json({ error: "Not Found"}) )
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "client", "build", "index.html"));

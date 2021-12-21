@@ -1,7 +1,6 @@
 import Math from "math";
 import hpr from "./helper_fn.js";
 import AxiosRouter from "../utils/axios_router.js";
-//Google Maps
 
 export class Itin_Manager {
   constructor(locs, sd, ed, st, et, transMode, anchors = null) {
