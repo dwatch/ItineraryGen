@@ -6,6 +6,7 @@ import path from "path"
 
 const oneDay = 1000 * 60 * 60 * 24
 const app = express()
+const __dirname = path.resolve();
 
 //Setting up an Express Session on top of the Server
 app.use(session({
