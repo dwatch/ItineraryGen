@@ -1,0 +1,33 @@
+{
+  "name": "itineraryGen",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build",
+    "client": "cd client && npm start",
+    "dev": "concurrently -n 'server,client' -c 'green,blue' \"nodemon server.js\" \"npm run client\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.19.1",
+    "concurrently": "^6.4.0",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.2",
+    "google-distance-matrix": "^1.1.1",
+    "math": "0.0.3",
+    "mongodb": "^4.2.2",
+    "nodemon": "^2.0.15"
+  },
+  "engines": {
+    "node": "14.17.6"
+  }
+}
