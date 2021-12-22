@@ -6,6 +6,7 @@ distance.key(process.env.REACT_APP_GOOGLE_API_KEY)
 
 export default class ListController { 
   static async AddList(req, res) {
+    console.log(req.session)
     let user_id = req.session.user_id
     let newListName = req.body.newList
     let oldLists = req.session.lists

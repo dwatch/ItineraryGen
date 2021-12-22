@@ -13,7 +13,8 @@ app.use(session({
   secret: "dkxElc72!sFcE5dkeiLDKedI5827dk3Iu5lJJup8d7Iu1$23%",
   resave: false,
   saveUninitialized: true,
-  cookie: { maxAge: oneDay, secure: false }
+  //cookie: { maxAge: oneDay, secure: false }
+  cookie: { httpOnly: true, secure: true, maxAge: oneDay, sameSite: 'none' }
 }))
 app.use(express.urlencoded({ extended: true }))
 

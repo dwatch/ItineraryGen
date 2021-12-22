@@ -34,7 +34,9 @@ export class List_Manager {
 
   makeList = async (prop) => {
     if (prop.target.value === "Add List") {
+      console.log("Sending create list request")
       const res = await AxiosRouter.addList(this.newList);
+      console.log(res)
       if (res.data.lists) {
         updateContext(this.context, "lists", res.data.lists)
         this.setNewList("")
