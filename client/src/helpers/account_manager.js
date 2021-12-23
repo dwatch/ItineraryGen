@@ -33,10 +33,10 @@ export default class Acct {
   }
 
   handleSignIn = async (e) => {
-    console.log("Logging In")
-    console.log(this.user)
     e.preventDefault();
     const res = await AxiosRouter.signin(this.user);
+    //console.log("Sign In - client")
+    //console.log(res)
     if (res.data.auth) {
       this.context.setAuth(res.data.user);
     }

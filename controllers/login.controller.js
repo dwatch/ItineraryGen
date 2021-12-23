@@ -41,6 +41,7 @@ export default class LoginController {
   }
 
   static async SignIn(req, res) {
+    //console.log("Sign In - server")
     const username = req.body.username
     const password = req.body.password
     let result = {message: "Username or Password Incorrect", auth: false}
@@ -70,6 +71,7 @@ export default class LoginController {
         }
       }
     }
+    //console.log(req.session)
     return res.json(result)
   }
 

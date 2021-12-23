@@ -13,7 +13,6 @@ function App() {
 
   const readSession = async () => {
     const result = await AxiosRouter.signedin();
-    console.log(result)
     if (result.data.auth) {
       setAuth(result.data.user);
     }
@@ -23,7 +22,6 @@ function App() {
     readSession();
   }, []);
   
-  console.log(process.env.REACT_APP_GOOGLE_API_KEY)
   const {isLoaded, loadError} = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_API_KEY,
     libraries,
