@@ -1,5 +1,5 @@
 import express from "express"
-import cors from "cors"
+//import cors from "cors"
 import session from "express-session"
 import MongoStore from 'connect-mongo'
 import router from "./express_router.js"
@@ -10,7 +10,7 @@ const oneDay = 60 * 60 * 24
 const app = express()
 const __dirname = path.resolve();
 
-app.use(cors())
+//app.use(cors())
 app.use(express.json())
 
 //Setting up an Express Session on top of the Server
