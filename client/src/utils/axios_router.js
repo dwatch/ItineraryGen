@@ -2,7 +2,6 @@ import axios from "axios";
 
 const http = axios.create({
     baseURL: "",
-    //baseURL: "https://itinerary-gen.herokuapp.com",
     headers: {
         "Content-type": "application/json"
     }
