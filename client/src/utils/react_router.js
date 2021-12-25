@@ -10,7 +10,7 @@ import context from "./react_context.js";
 function Routes() {
   return (
     <Switch>
-      <Landing exact path="/" />
+      <Landing exact path={"/"} />
       <RouteRegistration exact path="/signin" component={SignIn} />
       <RouteRegistration exact path="/signup" component={SignUp} />
       <RouteProtected exact path="/:user" component={UserLists} />

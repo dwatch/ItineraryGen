@@ -7,7 +7,6 @@ distance.key(process.env.REACT_APP_GOOGLE_API_KEY)
 export default class ListController { 
   static async AddList(req, res) {
     console.log("Adding List")
-    console.log(req.session)
     let user_id = req.session.user_id
     let newListName = req.body.newList
     let oldLists = req.session.lists
@@ -28,6 +27,7 @@ export default class ListController {
   }
 
   static async DelList(req, res) {
+    console.log("Deleting List")
     let user_id = req.session.user_id
     let listToDel = req.body.delList
     let oldLists = req.session.lists
@@ -49,6 +49,7 @@ export default class ListController {
 
   static SelectList(req, res) {
     req.session.specList = req.body.specList
+    console.log(`Selecting existing list: ${req.session.specList}`)
     return res.json({
       message: `${req.body.specList} has been selected`
     })
@@ -61,6 +62,7 @@ export default class ListController {
     loc.val = parseFloat(loc.val)
     loc.time = parseFloat(loc.time)
     lists[specList][loc.name] = loc
+    console.log(`Adding Location: ${loc.name}`)
     const DAOresponse = await ItineraryDAO.changeLists(user_id, lists)
     if (DAOresponse.matchedCount) {
       req.session.lists = lists
@@ -77,6 +79,7 @@ export default class ListController {
   }
 
   static async EditLoc(req, res) {
+    console.log("Editing an Item")
     let user_id = req.session.user_id
     let lists = req.body.specList
     const DAOresponse = await ItineraryDAO.changeLists(user_id, lists)
@@ -98,6 +101,7 @@ export default class ListController {
     let user_id = req.session.user_id
     let lists = req.session.lists
     let {specList, loc} = req.body
+    console.log(`Deleting Location: ${loc}`)
     delete lists[specList][loc]
     const DAOresponse = await ItineraryDAO.changeLists(user_id, lists)
     if (DAOresponse.matchedCount) {
@@ -115,6 +119,7 @@ export default class ListController {
   }
   
   static async DistMatrix(req, res) {
+    console.log("Fetching Distance Matrix")
     const origins = req.body.origins
     const destinations = req.body.destinations
     const mode = req.body.mode    
@@ -129,6 +134,7 @@ export default class ListController {
   }
 
   static UpateItinParams(req, res) {
+    console.log("Updating Itinerary Parameters")
     req.session.itin_dets = req.body
     return res.json({
       message: `Itinerary Params have been updated`

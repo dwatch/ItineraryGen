@@ -5,6 +5,8 @@ import AxiosRouter from "./utils/axios_router.js";
 import Routes from "./utils/react_router.js";
 import Account_Manager from "./helpers/account_manager.js";
 import { useLoadScript } from "@react-google-maps/api";
+import dotenv from "dotenv";
+dotenv.config()
 
 const libraries = ["places"]
 
@@ -37,7 +39,7 @@ function App() {
     <div className="App">
       <script src={`https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_API_KEY}&libraries=places`}></script>
       <context.Provider value={{auth, setAuth}}>
-        <Router>
+        <Router basename={process.env.PUBLIC_URL}>
           <Routes />
         </Router>
       </context.Provider>

@@ -22,7 +22,7 @@ function UserLists() {
   return(
     <div className="login mtn20">
       <h1>Welcome back {authApi.auth.name}</h1>
-      <h3 className="mtn20">Here are you current lists:</h3>
+      <h3 className="mtn20">Here are your current lists:</h3>
       <table className="h240p maps-list w70 mtn20 right15">
         <thead>
         <tr>

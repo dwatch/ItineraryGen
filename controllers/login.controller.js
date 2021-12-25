@@ -71,12 +71,13 @@ export default class LoginController {
         }
       }
     }
-    console.log(req.session)
+    console.log(`Signing in user: ${req.session.username}`)
     return res.json(result)
   }
 
   static async FindUser(req, res) {
     const username = req.body.username
+    console.log(`Finding user: ${username}`)
     const validUser = await ItineraryDAO.signIn(username)
     if (validUser) {
       return res.json({message: "Found user", found: true})
@@ -85,6 +86,7 @@ export default class LoginController {
   }
 
   static Verified(req, res) {
+    console.log("Verifying logged-in status")
     let result = {message: "You are not signed in", auth: false}
     if (req.session.user_id) {
       result.message = "You are signed in"
@@ -101,6 +103,7 @@ export default class LoginController {
   }
 
   static Logout(req, res) {
+    console.log("Logging Out")
     if (req.session) {
       req.session.destroy(err => {
         if (err) {

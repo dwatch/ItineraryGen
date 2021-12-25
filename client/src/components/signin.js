@@ -24,8 +24,8 @@ const SignIn = () => {
         <button className="btn btn-primary btn-block btn-large" onClick={AcctManager.handleSignIn}>
           Login
         </button>
-        <h5 className="link-descript">Don't have an account yet? <a href="/signup" className="link">Sign Up</a></h5>
-        <h5 className="link-descript mtn10">Like the landing page? <a href="/" className="link">Click Here!</a></h5>
+        <h5 className="link-descript">Don't have an account yet? <a href="./signup" className="link">Sign Up</a></h5>
+        <h5 className="link-descript mtn10">Like the landing page? <a href="./" className="link">Click Here!</a></h5>
       </div>
     </div>
   );
